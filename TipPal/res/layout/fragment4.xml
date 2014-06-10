@@ -1,0 +1,108 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededed" >
+
+    <TextView
+        android:id="@+id/tv_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_bill_amount"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/bill_title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/et_bill_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tv_bill"
+        android:layout_marginLeft="20dp"
+        android:ems="10"
+        android:hint="@string/bill_amount_number"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tv_tip_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_bill_amount"
+        android:layout_below="@+id/et_bill_amount"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/tip_percent_title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/btn_subtract_tip_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_tip_percent"
+        android:layout_below="@+id/tv_tip_percent"
+        android:text="@string/subtraction_sign" />
+
+    <TextView
+        android:id="@+id/tv_tip_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_subtract_tip_percent"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/btn_subtract_tip_percent"
+        android:text="@string/tip_amount_number"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/btn_add_tip_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_tip_amount"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/tv_tip_amount"
+        android:text="@string/addition_sign" />
+
+    <TextView
+        android:id="@+id/tv_tip_amount_result_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_add_tip_percent"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/tv_bill"
+        android:text="@string/tip_title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/tv_tip_amount_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_tip_amount_result_title"
+        android:layout_alignBottom="@+id/tv_tip_amount_result_title"
+        android:layout_alignRight="@+id/et_bill_amount"
+        android:text="@string/tip_amount_result"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/tv_bill_amount_result_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_tip_amount_result_title"
+        android:layout_below="@+id/tv_tip_amount_result_title"
+        android:layout_marginTop="30dp"
+        android:text="@string/total_title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tv_bill_amount_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_bill_amount_result_title"
+        android:layout_alignBottom="@+id/tv_bill_amount_result_title"
+        android:layout_toRightOf="@+id/tv_tip_amount"
+        android:text="@string/total_amount_result"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>

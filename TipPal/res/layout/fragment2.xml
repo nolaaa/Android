@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededed" >
+
+    <Button
+        android:id="@+id/btn_Authorize_Coinbase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/authorize" />
+
+    <Button
+        android:id="@+id/btn_get_receiver_bitcoin_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btn_Authorize_Coinbase"
+        android:text="@string/get_receiver_address" />
+
+    <EditText
+        android:id="@+id/et_user_id_of_receiver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_get_receiver_bitcoin_address"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/btn_get_receiver_bitcoin_address"
+        android:layout_toRightOf="@+id/btn_get_receiver_bitcoin_address"
+        android:ems="10"
+        android:hint="@string/receiver_address" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btn_authorize_coinbase_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/authorize_payment" />
+
+    <ImageView
+        android:id="@+id/imageView_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/bitcoin_img"
+        android:contentDescription="@string/currency_img" />
+
+    <EditText
+        android:id="@+id/et_bitcoin_coinbase_currency_to_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_authorize_coinbase_payment"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="@string/currency_to_send" />
+
+</RelativeLayout>

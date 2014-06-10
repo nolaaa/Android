@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededed" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout_currency1_conversion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true" >
+
+        <EditText
+            android:id="@+id/et_currency1_conversion"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="@string/currency1_conversion"
+            android:hint="@string/currency1_conversion_hint"
+            android:inputType="numberDecimal" />
+
+        <Spinner
+            android:id="@+id/spinner_currency1_conversion"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:textColor="#4a4a4a"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_conversion_equals_sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout_currency1_conversion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:text="@string/conversion_equals_sign"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <LinearLayout
+        android:id="@+id/linearLayout_currency2_conversion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/tv_conversion_equals_sign" >
+
+        <EditText
+            android:id="@+id/et_currency2_conversion"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="@string/currency2_conversion"
+            android:hint="@string/currency2_conversion_hint"
+            android:inputType="numberDecimal" />
+
+        <Spinner
+            android:id="@+id/spinner_currency2_conversion"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:textColor="#4a4a4a"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</RelativeLayout>

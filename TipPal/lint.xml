@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="NewApi">
+        <ignore path="src/com/tippal/drawer/Fragment5.java" />
+    </issue>
+    <issue id="ValidFragment">
+        <ignore path="src/com/tippal/drawer/Fragment1.java" />
+        <ignore path="src/com/tippal/drawer/Fragment2.java" />
+        <ignore path="src/com/tippal/drawer/Fragment3.java" />
+        <ignore path="src/com/tippal/drawer/Fragment4.java" />
+        <ignore path="src/com/tippal/drawer/Fragment5.java" />
+    </issue>
+</lint>

@@ -1,0 +1,52 @@
+<resources>
+
+    <string name="app_name">Tip Pal</string>
+    
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    
+    <string name="action_settings">Menu</string>
+    
+    <string name="feedback_title">Give feedback?</string>
+    <string name="under_feedback_title">The developer would love to read it!</string>
+    <string name="feedback_hint">feedback here</string>
+    <string name="feedback_send">Send</string>
+    
+    <string name="authorize">Coinbase Authorize</string>
+    <string name="receiver_address">Receiver Address</string>
+    <string name="get_receiver_address">GET\nReceiver Address</string>
+    <string name="authorize_payment">Authorize Payment</string>
+    <string name="currency_img">Currency image</string>
+    <string name="currency_to_send">0.00001</string>
+    
+    <string name="get_receiver_paypal_email">GET\nReceiver Paypal</string>
+    <string name="receiver_paypal_email">Receiver Paypal Email</string>
+    <string name="currency_to_send_paypal">4.20</string>
+    
+    <string name="bill_title">Bill</string>
+    <string name="bill_amount_number">0.00</string>
+    <string name="tip_percent_title">Tip %</string>
+    <string name="subtraction_sign">-</string>
+    <string name="addition_sign">+</string>
+    <string name="tip_amount_number">15%</string>
+    <string name="tip_title">Tip</string>
+    <string name="tip_amount_result">$0.00</string>
+    <string name="total_title">Total</string>
+    <string name="total_amount_result">$0.00</string>
+    
+    <string name="currency1_conversion">0.00</string>
+    <string name="currency1_conversion_hint">0.00</string>
+    <string name="conversion_equals_sign">=</string>
+    <string name="currency2_conversion">0.00</string>
+    <string name="currency2_conversion_hint">0.00</string>
+    
+    <string name="bitmonet">Powered by Coinbase</string>
+    <string name="buy">Buy</string>
+    <string name="coinbase">Coinbase</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="processing_transaction">Processing Transaction&#8230;</string>
+    
+    <string name="dialog_alert_exit">exit</string>
+    <string name="dialog_alert_confirm">confirm</string>
+
+</resources>
