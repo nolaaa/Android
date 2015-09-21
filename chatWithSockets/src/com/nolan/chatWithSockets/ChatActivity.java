@@ -149,4 +149,10 @@ public class ChatActivity extends Activity {
             }
         });
     }
+
+    @Override
+    protected void onPause() {
+        websocketClient.socket.disconnect();
+        super.onPause();
+    }
 }

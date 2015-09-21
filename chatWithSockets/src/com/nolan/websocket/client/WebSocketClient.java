@@ -8,13 +8,14 @@ import org.json.JSONObject;
 
 public class WebSocketClient {
 
+	public Socket socket; // SocketIO Client.
+
+	private String sSocketId; // WebSocket User Socket Id.
+
 	private String publicName;
 	public void setPublicName(String publicName) {
 		this.publicName = publicName;
 	}
-
-	public Socket socket; // socket client.
-	private String sSocketId; // WebSocket User Socket Id.
 
 	public WebSocketClientInterface wscInterface;
 
@@ -51,18 +52,20 @@ public class WebSocketClient {
 			public void call(Object... args) {
 				wscInterface.receivedMessage("new user");
 			}
-		}).on("disconnect", new Emitter.Listener() {
+		}).on("message", new Emitter.Listener() {
 			@Override
 			public void call(Object... args) {
-				wscInterface.receivedMessage("disconnect"); // other user disconnect
+				try {
+					wscInterface.receivedMessage(((JSONObject) args[0]).toString());
+				} catch (Exception e) {
+					System.out.println("message - Exception e: " + e);
+				}
 			}
-
 		}).on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {
 			@Override
 			public void call(Object... args) {
 				wscInterface.receivedMessage("error"); // self disconnect
 			}
-
 		}).on(Socket.EVENT_CONNECT_ERROR, new Emitter.Listener() {
 			@Override
 			public void call(Object... args) {

@@ -63,8 +63,8 @@ io.on('connection', function (socket) {
 
     // New User Joins Chat. [adds user to users, tell users of new user and respond user is ready].
     socket.on('new user', function (user) { // mine
-        console.log('[debug] new user');
         if (user) { // check if user is null
+            console.log('[debug] new user');
             socket.emit('ready'); // tell user is ready to chat.
             socket.broadcast.emit('new user', { // broadcast new user.
                 publicName: user.publicName
