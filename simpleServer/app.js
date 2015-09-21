@@ -64,15 +64,12 @@ io.on('connection', function (socket) {
     // New User Joins Chat. [adds user to users, tell users of new user and respond user is ready].
     socket.on('new user', function (user) { // mine
         console.log('[debug] new user');
-        if (!user) // if user is empty create a user
-            user = { // random user_ + number between 100(min) to 1000(max).
-                publicName : ('user_' + Math.floor(Math.random()*(1000-100+1)+100))
-            };
-        socket.emit('ready'); // tell user he is ready to chat.
-        socket.broadcast.emit('new user', { // broadcast new user.
-            publicName: user.publicName
-        });
-
+        if (user) { // check if user is null
+            socket.emit('ready'); // tell user he is ready to chat.
+            socket.broadcast.emit('new user', { // broadcast new user.
+                publicName: user.publicName
+            });
+        }
     });
 
     // User Sent a Message. [broadcast message to users]

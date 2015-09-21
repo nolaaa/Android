@@ -8,8 +8,6 @@ import org.json.JSONObject;
 
 public class WebSocketClient {
 
-	protected static final String LOGC = "WebSocketClient";
-
 	private String publicName;
 	public void setPublicName(String publicName) {
 		this.publicName = publicName;
