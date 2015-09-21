@@ -57,24 +57,18 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
-
-var users = new Array(10000); // users for socket.io.
-
 // Socket.io [socket event handling].
 io.on('connection', function (socket) {
     console.log('[debug] new connection');
 
-    // (1) New User Joins Chat. [adds user to users, tell users of new user and respond user is ready].
+    // New User Joins Chat. [adds user to users, tell users of new user and respond user is ready].
     socket.on('new user', function (user) { // mine
         console.log('[debug] new user');
         if (!user) // if user is empty create a user
             user = { // random user_ + number between 100(min) to 1000(max).
                 publicName : ('user_' + Math.floor(Math.random()*(1000-100+1)+100))
             };
-        socket.user = user; // Add user to socket for disconnect and other look ups based on socket message.
         socket.emit('ready'); // tell user he is ready to chat.
-        users.push(user);
         socket.broadcast.emit('new user', { // broadcast new user.
             publicName: user.publicName,
             usersOnline: users.count
@@ -82,19 +76,7 @@ io.on('connection', function (socket) {
 
     });
 
-    // (2) User Disconnects from Chat. [broadcast disconnect event; tell users who disconnected and remove user from users].
-    socket.on('disconnect', function() {
-        try {
-            socket.broadcast.emit('disconnect', { // broadcast disconnect.
-                user: socket.user
-            });
-            delete users[socket.user]; // remove user from users.
-        } catch(e) {
-
-        }
-    });
-
-    // (3) User Sent a Message. [broadcast message to users]
+    // User Sent a Message. [broadcast message to users]
     socket.on('message', function(message) {
         console.log('[debug] message');
         if (message) { // Only if message contains something.
@@ -105,6 +87,5 @@ io.on('connection', function (socket) {
         }
     });
 });
-
 
 module.exports = app;
