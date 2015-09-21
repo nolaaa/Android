@@ -60,8 +60,11 @@ public class ChatActivity extends Activity {
                         System.out.println("connect");
                     } else if (message.equals("ready")) {
                         System.out.println("ready");
-                    } else if (message.equals("disconnect")) {
-                        System.out.println("disconnect");
+                    } else if (message.equals("new user")) {
+                        System.out.println("new user");
+                        ToastMessage tm = new ToastMessage();
+                        tm.message = "new user is online";
+                        tm.start();
                     } else if (message.equals("error")) {
                         System.out.println("error");
                     } else if (message.contains("message")) {
@@ -82,6 +85,24 @@ public class ChatActivity extends Activity {
                 }
             }
         });
+    }
+
+    public class ToastMessage extends Thread {
+        public String message;
+        @Override
+        public void run() {
+            ChatActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
+                        toast.show();
+                    } catch (Exception e) {
+                        System.out.println("Message - runOnUiThread Exception e: " + e);
+                    }
+                }
+            });
+        }
     }
 
     public class Message extends Thread {
@@ -128,5 +149,4 @@ public class ChatActivity extends Activity {
             }
         });
     }
-
 }

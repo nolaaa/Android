@@ -1,6 +1,6 @@
 package com.nolan.websocket.client;
 
-import com.github.nkzawa.socketio.client.*; // java socket io client
+import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
 import com.github.nkzawa.emitter.Emitter;
 
@@ -10,17 +10,13 @@ public class WebSocketClient {
 
 	protected static final String LOGC = "WebSocketClient";
 
-	public Socket socket; // SocketIO Client.
-
 	private String publicName;
 	public void setPublicName(String publicName) {
 		this.publicName = publicName;
 	}
 
+	public Socket socket; // socket client.
 	private String sSocketId; // WebSocket User Socket Id.
-	private static String sUuid; // Universal Unique ID the server uses for identification.
-	private boolean bWebSocketReady; // Check when we are ready...
-	private String name = ""; // Name that other clients will receive.
 
 	public WebSocketClientInterface wscInterface;
 
@@ -52,15 +48,10 @@ public class WebSocketClient {
 			public void call(Object... args) {
 				wscInterface.receivedMessage("ready"); // ready to chat.
 			}
-		}).on("message", new Emitter.Listener() {
+		}).on("new user", new Emitter.Listener() {
 			@Override
 			public void call(Object... args) {
-				try { // received message.
-					System.out.println("received message.");
-					wscInterface.receivedMessage(((JSONObject) args[0]).toString());
-				} catch (Exception e) {
-					System.out.println("message - Exception: " + e);
-				}
+				wscInterface.receivedMessage("new user");
 			}
 		}).on("disconnect", new Emitter.Listener() {
 			@Override
@@ -91,7 +82,7 @@ public class WebSocketClient {
 			message.put("message", s);
 
 			socket.emit("message", message);
-			System.out.println("sent broadcast message successfully.");
+			System.out.println("sent broadcast message.");
 		} catch (Exception e) {
 			System.out.println("broadcastMessage - Exception e: " + e);
 		}

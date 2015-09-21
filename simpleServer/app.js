@@ -70,8 +70,7 @@ io.on('connection', function (socket) {
             };
         socket.emit('ready'); // tell user he is ready to chat.
         socket.broadcast.emit('new user', { // broadcast new user.
-            publicName: user.publicName,
-            usersOnline: users.count
+            publicName: user.publicName
         });
 
     });
