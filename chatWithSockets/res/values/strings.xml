@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">WebSockets Chat</string>
+
+	<string name="welcome_message">Simple WebSockets Chat</string>
+	<string name="display_username">Public name: </string>
+	<string name="name_hint">type a public display name here...</string>
+	<string name="button_begin_chat">Let\'s go</string>
+
+	<string name="info_message">Using a Nodejs server, we will setup a websocket connection to the server and broadcast messages to useers (No authentication required).</string>
+
+	<string name="button_send">send</string>
+	<string name="message_hint">send a message to someone...</string>
+</resources>
