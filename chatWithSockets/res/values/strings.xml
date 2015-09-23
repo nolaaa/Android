@@ -11,4 +11,6 @@
 
 	<string name="button_send">send</string>
 	<string name="message_hint">send a message to someone...</string>
+
+	<string name="shared_preferences">preferences_chat_app</string>
 </resources>

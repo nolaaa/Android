@@ -39,9 +39,8 @@ public class ChatActivity extends Activity {
 
     private void getExtras() {
         Bundle extras = getIntent().getExtras();
-        if (extras != null) {
+        if (extras != null)
             publicName = extras.getString("publicName");
-        }
     }
 
     public void createWebSocketClient() {

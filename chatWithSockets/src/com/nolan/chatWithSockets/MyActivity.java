@@ -1,7 +1,9 @@
 package com.nolan.chatWithSockets;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,16 +20,29 @@ public class MyActivity extends Activity {
     private EditText etPublicName;
     private TextView tvPublicName;
 
-    private String publicName = "User_" + (new Random()).nextInt(100);
+    private String publicName = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        setupSharedPreferences();
+
         setupUserInterface();
     }
 
+    private void setupSharedPreferences() {
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.shared_preferences), Context.MODE_PRIVATE);
+        publicName = sharedPref.getString("publicName", "User_" + (new Random()).nextInt(100));
+        saveSharedPreferences();
+    }
+
+    private void saveSharedPreferences() {
+        SharedPreferences.Editor editor = getSharedPreferences(getString(R.string.shared_preferences), MODE_PRIVATE).edit();
+        editor.putString("publicName", publicName);
+        editor.apply();
+    }
 
     private void setupUserInterface() {
         // Setup TextView for public name to display.
@@ -42,7 +57,8 @@ public class MyActivity extends Activity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                publicName = s.toString();
+                if (s.toString().length() > 0) // needed or rotate will cause name to change to empty string.
+                    publicName = s.toString();
                 tvPublicName.setText("Public name: " + publicName);
             }
 
@@ -60,7 +76,6 @@ public class MyActivity extends Activity {
                 startActivity(intent);
             }
         });
-
     }
 
 }
