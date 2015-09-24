@@ -26,7 +26,7 @@ public class WebSocketClient {
 	public void setupWebSocketClient() throws Exception {
 		System.out.println("Starting websocket client...");
 
-		socket = IO.socket("http://35.24.85.83:1337"); // can't use localhost or 127.0.0.1
+		socket = IO.socket("http://192.168.15.4:1337"); // can't use localhost or 127.0.0.1
 
 		socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
 			@Override

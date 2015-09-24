@@ -23,12 +23,14 @@ public class ChatActivity extends Activity {
     private ListView lvMessages;
     ArrayAdapter<String> adapter;
     String[] userMessages = new String[] {};
-    ArrayList<String> list = new ArrayList<String>(Arrays.asList(userMessages));
+    ArrayList<String> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat);
+
+        setupSaveInstanceStateValues(savedInstanceState);
 
         getExtras(); // get extras from bundle.
 
@@ -123,6 +125,7 @@ public class ChatActivity extends Activity {
     }
 
     private void setupUserInterface() {
+        list = new ArrayList<String>(Arrays.asList(userMessages));
         // Setup adapter for handling added messages to listview.
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
         // Setup Listview for messages received and sent.
@@ -153,5 +156,17 @@ public class ChatActivity extends Activity {
     protected void onPause() {
         websocketClient.socket.disconnect();
         super.onPause();
+    }
+
+    private void setupSaveInstanceStateValues(Bundle bundle) {
+        if (bundle != null)
+            userMessages = bundle.getStringArray("userMessages");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        userMessages = list.toArray(new String[list.size()]);
+        outState.putStringArray("userMessages", userMessages);
     }
 }
